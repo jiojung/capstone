@@ -1,0 +1,29 @@
+@mixin mobile-container {
+    padding: 0 16px;
+}
+
+@mixin tablet-container {
+    padding: 0 24px;
+}
+
+@mixin desktop-container {
+    padding: 0 50px;
+}
+
+@mixin mobile-only {
+    @media (min-width: 320px) {
+        @content;
+    }
+}
+
+@mixin tablet-only {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin desktop-only {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}

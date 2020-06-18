@@ -1,0 +1,24 @@
+@import '../../shared/foundation';
+
+// #7aa5d2 #8fb2d7
+.nav {
+    display: flex;
+    background-color: #47555e;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    ul {
+        text-decoration: none;
+        display: flex;
+        list-style: none;
+        justify-content: space-evenly;
+        width: 100%;
+        padding-bottom: 15px;
+        color: #eeeeee;
+    }
+
+    &__logo {
+        width: 200px;
+        height: 200px;
+    }
+}
