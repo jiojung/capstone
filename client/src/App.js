@@ -8,8 +8,9 @@ import {Switch, Route, Redirect, BrowserRouter} from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <Header/>
       <BrowserRouter>
+      <Header/>
+      
       <Switch>
         <Route path='/' component={Main}/>
       </Switch>

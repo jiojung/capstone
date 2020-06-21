@@ -1,10 +1,20 @@
+
 const express = require('express');
 const app = express();
 const passport = require('passport');
-const cors = require('cors');
-app.use(cors());
-// const SteamStrategy = require('passport-steam').Strategy;
+const request = require('request');
+const bodyParser = require('body-parser');
+const fs = require('fs');
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.use(bodyParser.json());
+
+app.set('port', 4000);
 
 app.use(passport.initialize());
 
@@ -16,26 +26,14 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
-// passport.use(new SteamStrategy({
-//     returnURL: 'http://localhost:3000/auth/steam/return',
-//     realm: 'http://localhost:3000/',
-//     apiKey: 'A9AF4EC788FFD1B9A079A36B0A93BDFC',
-//     stateless:true
-//   },
-//   function(identifier, profile, done) {
-
-//     profile.identifier = identifier;
-//     return done(null, profile);
-//   }
-// ));
 var OpenIDStrategy = require('passport-openid').Strategy;
 var SteamStrategy = new OpenIDStrategy({
         // OpenID provider configuration
         providerURL: 'http://steamcommunity.com/openid',
         stateless: true,
         // How the OpenID provider should return the client to us
-        returnURL: 'http://localhost:3000/auth/openid/return',
-        realm: 'http://localhost:3000/',
+        returnURL: 'http://localhost:4000/auth/openid/return',
+        realm: 'http://localhost:4000/',
     },
     // This is the "validate" callback, which returns whatever object you think
     // should represent your user when OpenID authentication succeeds.  You
@@ -67,9 +65,6 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(identifier, done) {
-  // For this demo, we'll just return an object literal since our user
-  // objects are this trivial.  In the real world, you'd probably fetch
-  // your user object from your database here.
   done(null, {
       identifier: identifier,
       steamId: identifier.match(/\d+$/)[0]
@@ -81,44 +76,97 @@ app.get('/auth/openid', passport.authenticate('openid'));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.get('/logout', function(req, res){
-//   req.logout();
-//   res.redirect('http://localhost:3000/');
-// });
-
-// app.get('/auth/steam',
-//   passport.authenticate('steam'),
-//   function(req, res) {
-//     // The request will be redirected to Steam for authentication, so
-//     // this function will not be called.
-//   });
-
-// app.get('/auth/steam/return',
-//   passport.authenticate('steam', { failureRedirect: '/login' }),
-//   function(req, res) {
-//     // Successful authentication, redirect home.
-//     if (req.user) {
-//       res.redirect('http://localhost:4000/?steamid=' + req.user.steamId);
-//   } else {
-//       res.redirect('http://localhost:3000/?failed');
-//   }
-//   });
 
 app.get('/auth/openid/return', passport.authenticate('openid'),
     function(request, response) {
         if (request.user) {
-            response.redirect('/?steamid=' + request.user.steamId);
+            response.redirect('http://localhost:3000/?steamid=' + request.user.steamId);
+            // var url = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=A9AF4EC788FFD1B9A079A36B0A93BDFC&steamids=' + request.user.steamId;
+            // request(url, function(err, response, body) {
+            //   if(!err && response.statusCode < 400) {
+            //     console.log(body);
+            //     res.send(body);
+            //   }
+            // });
+            console.log("this is id", request.user.steamId)
+            console.log("this is 2id", request.query.steamid);
+
         } else {
-            response.redirect('/?failed');
+            response.redirect('http://localhost:3000/?failed');
         }
-});
+}); 
 
 app.get('/auth/logout', function(request, response) {
   request.logout();
-  // After logging out, redirect the user somewhere useful.
-  // Where they came from or the site root are good choices.
-  response.redirect(request.get('Referer') || '/')
+  response.redirect('http://localhost:3000/')
 });
+
+app.get('/getplayersummary', function(req, res) {
+  console.log("this is 3id", req.query.steamid);
+  var url = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=A9AF4EC788FFD1B9A079A36B0A93BDFC&steamids=76561198045237469';
+    request(url, function(err, response, body) {
+      if(!err && response.statusCode < 400) {
+        console.log(body);
+        res.send(body);
+      }
+    });	
+});
+
+app.post('/userinfo', function(request, response) {
+      fs.readFile('userdata.json', 'utf8', function readFileCallback(err, data){
+        if (err){
+            console.log(err);
+        } else {
+        obj = JSON.parse(data); //now it an object
+        console.log("this is obj before", obj[0].steamid);
+        console.log("obj length", obj.length)
+        // for(let i=0; i<obj.length; i++){
+        if(obj.some(steam=>steam.steamid===request.body.steamid)) {
+          console.log("you are registered");
+        }
+        else  {
+            obj.push(
+              {
+                  "steamid": request.body.steamid,
+                  "communityvisibilitystate": request.body.communityvisibilitystate,
+                  "profilestate": request.body.profilestate,
+                  "personaname": request.body.personaname,
+                  "commentpermission": request.body.commentpermission,
+                  "profileurl": request.body.profileurl,
+                  "avatar": request.body.avatar,
+                  "avatarmedium": request.body.avatarmedium,
+                  "avatarfull": request.body.avatarfull,
+                  "avatarhash": request.body.avatarhash,
+                  "lastlogoff": request.body.lastlogoff,
+                  "personastate": request.body.personastate,
+                  "primaryclanid": request.body.primaryclanid,
+                  "timecreated": request.body.timecreated,
+                  "personastateflags": request.body.personastateflags,
+                  "loccountrycode": request.body.loccountrycode,
+                  "locstatecode": request.body.locstatecode,
+                  "usergames" : request.body.usergames,
+                  "userrecent": request.body.userrecent
+              })
+        } //add some data
+        json = JSON.stringify(obj); //convert it back to json
+        fs.writeFile('userdata.json', json, 'utf8', ()=>{}); // write it back
+        response.json(data);
+    }});
+})
+
+app.get('/userinfo', function(request, response){
+  fs.readFile('userdata.json', 'utf8', function readFileCallback(err, data){
+    if (err){
+        console.log(err);
+    } else {
+    obj = JSON.parse(data); //now it an object
+    console.log("obj length", obj.length)
+    response.json(obj);
+    }
+})
+})
+
+
 
 
 app.listen(4000, () => {
