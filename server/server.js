@@ -123,8 +123,18 @@ app.get('/getplayergames', function(req, res) {
 });
 
 app.get('/getplayerrecent', function(req, res) {
-  console.log("this is 3id", req.query.steamid);
   var url = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=A9AF4EC788FFD1B9A079A36B0A93BDFC&steamid=`+req.query.steamid+`&format=json`;
+    request(url, function(err, response, body) {
+      if(!err && response.statusCode < 400) {
+        console.log(body);
+        res.send(body);
+      }
+    });	
+});
+
+app.get('/getnews', function(req, res) {
+  console.log("this is 3id", req.query.steamid);
+  var url = `http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=730&count=3&maxlength=300&format=json`;
     request(url, function(err, response, body) {
       if(!err && response.statusCode < 400) {
         console.log(body);
