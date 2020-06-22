@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './main.scss';
 import axios from 'axios';
-import Video from './Video/Video';
 import Welcome from './Welcome/Welcome';
-
+import Footer from '../Footer/Footer';
+import About from '../About/About';
+import Header from '../Header/Header';
+import { StickyContainer } from 'react-sticky';
 
 const API_URL = 'http://localhost:4000';
 
@@ -36,14 +38,16 @@ class Main extends Component {
         // console.log("this is data", this.state.data.steamid)
         
         return (
+            <div className="full">
             <div className="main">
-                {/* <Video/> */}
                 <div className="main__headline">
-                    <h1>Welcome to Steamatch.</h1>
+                <About/>
                 </div>
                 <div className="main__content">
                     <Welcome userID={userID} personaname={this.state.data.personaname} avatar={this.state.data.avatar}/>
                 </div>
+            </div>
+            <Footer/>
             </div>
         )
     }

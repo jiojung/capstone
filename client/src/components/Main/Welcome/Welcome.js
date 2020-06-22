@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
+import '../../../../node_modules/aos/dist/aos.css';
+import './welcome.scss';
+import AOS from 'aos';
 import axios from 'axios';
 const API_URL = 'http://localhost:4000';
 const list1 = []
+AOS.init({
+    duration: 1200
+   });
+
 
 class Welcome extends Component {
     constructor(props) { 
@@ -104,7 +111,7 @@ class Welcome extends Component {
         console.log("random", friend)
         // const friendgame = friend.usergame
         return (
-            <div className="welcome">
+            <div className="welcome" data-aos="fade-left">
                 {this.props.userID.length === 0 ?
                     <>
                     <h2>Get Started</h2> 
@@ -114,9 +121,11 @@ class Welcome extends Component {
                     <>
                     {this.state.clicked.length === 0 ?
                     <>
-                    <h2>Hello</h2>
                     <div className="welcome__user">
-                        <p>{this.state.userdata.personaname}</p>
+                        <div className="welcome__helloname">
+                        <h2>Hello</h2>
+                        <h2>{this.state.userdata.personaname}</h2>
+                        </div>
                         <p><img src={this.state.userdata.avatarfull} alt="player avatar" className="playeravatar"/></p>
                     </div>
                     <p><a href ={`${API_URL}/auth/logout`}>Logout</a></p>
@@ -126,13 +135,24 @@ class Welcome extends Component {
                     </>
                     :
                     <>
-                    <h3>Here is your new friend!</h3>
-                    <p><img src={friend.avatarfull} alt="friend's avatar" className="playeravatar"/></p>
-                    <p><a href ={`${API_URL}/auth/logout`}>Logout</a></p>
-                    <p>Their name is {friend.personaname}</p>
-                    <p>They live in {friend.locstatecode}, {friend.loccountrycode}</p>
-                    <p>Recently they've been enjoying <a href={`https://steamcommunity.com/app/${friend.userrecent.appid}`}>{friend.userrecent.name}</a></p>
-                    <p>Here is a link to their <a href={`https://steamcommunity.com/id/${friend.steamid}`}>profile</a></p>
+                    <div className="welcome__main">
+                        <div className="welcome__friend">
+                        <h3>Here is your new friend!</h3>
+                        <p><img src={friend.avatarfull} alt="friend's avatar" className="playeravatar"/></p>
+                        <p><a href ={`${API_URL}/auth/logout`}>Logout</a></p>
+                        </div>
+                        <div className="welcome__container">
+                            <p>Their name is {friend.personaname}</p>
+                            <p>They live in {friend.locstatecode}, {friend.loccountrycode}</p>
+                            <p>Recently they've been enjoying <a href={`https://steamcommunity.com/app/${friend.userrecent.appid}`}>{friend.userrecent.name}</a></p>
+                            <p>Here is a link to their <a href={`https://steamcommunity.com/id/${friend.steamid}`}>profile</a></p>
+                            <div className="welcome__button">
+                                <form id="matchUser" onSubmit={this.onSubmit}>
+                                    <button type='submit'>Match me again</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                     </>
                     }
                     </>

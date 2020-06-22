@@ -1,23 +1,13 @@
 @import '../../shared/foundation.scss';
 
 .main {
-    &__headline {
-        background-color: #eeeeee;
+   
+   
+        background-color: black;
         position: relative;
-        height: 100vh;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    &__content {
-        background-color: #eeeeee;
-        position: relative;
-        height: 100vh;
-        text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-    }
+    
 }

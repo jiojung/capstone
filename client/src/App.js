@@ -5,14 +5,14 @@ import Header from './components/Header/Header';
 import Main from './components/Main/Main';
 import {Switch, Route, Redirect, BrowserRouter} from 'react-router-dom';
 
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
       <Header/>
-      
       <Switch>
-        <Route path='/' component={Main}/>
+        <Route exact path="/" component={Main}/>
       </Switch>
       </BrowserRouter>
     </div>

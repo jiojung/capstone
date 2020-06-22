@@ -1,0 +1,58 @@
+@import '../../../shared/foundation';
+
+.welcome {
+    background-color: black;
+    border-radius: 8px;
+    border: 4px solid #7aa5d2;
+    color: #eeeeee;
+    width: 220px;
+    height: 450px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    a  {
+        text-decoration: none;
+        color: #7aa5d2;
+    }
+    h2 {
+        margin-bottom: 20px;
+    }
+    @include tablet-only {
+        width: 450px;
+    }
+    margin-bottom: 100px;
+    &__friend {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__helloname {
+        display: flex;
+        align-items: baseline;
+        h2 {
+            margin-right: 10px;
+        }
+        justify-content: center;
+    }
+    .playeravatar {
+        border: 2px solid black;
+        margin-top: 10px;
+    }
+    button {
+        background-color: black;
+        color: #eeeeee;
+        border-radius: 8px;
+        padding: 10px 20px;
+        border: 2px solid #7aa5d2;
+        margin-top: 8px;
+    }
+    &__container {
+        width: 200px;
+    }
+    &__button{
+        display: flex;
+        justify-content: center;
+    }
+}
