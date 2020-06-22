@@ -21,9 +21,11 @@
     &__purpose {
         margin-bottom: 100px;
         margin-top: 100px;
+        height: 250px;
         @include tablet-only{
             margin-top: 200px;
             margin-bottom: 200px;
+            height: 200px;
         }
     }
     &__how {
