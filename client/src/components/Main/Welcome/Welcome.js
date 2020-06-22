@@ -99,7 +99,7 @@ class Welcome extends Component {
     render() {
         const friend = this.state.newfornow[Math.floor(Math.random()*this.state.newfornow.length)]
         return (
-            <div className="welcome" data-aos="fade-right">
+            <div className="welcome" data-aos="fade-right" id="match">
                 {this.props.userID.length === 0 ?
                     <>
                     <h2>Get Started</h2> 
