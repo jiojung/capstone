@@ -1,13 +1,14 @@
 @import '../../shared/foundation.scss';
 
 .main {
-   
-   
         background-color: black;
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-    
+}
+
+.full {
+        background-color: black;
 }

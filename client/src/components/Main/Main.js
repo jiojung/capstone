@@ -14,7 +14,8 @@ class Main extends Component {
     }
     
     componentDidMount(){
-        axios.get(`${API_URL}/getplayersummary`)
+        const userID = this.props.location.search.slice(9);
+        axios.get(`${API_URL}/getplayersummary?steamid=${userID}`)
         .then((response) =>
             this.setState({
                 data: response.data.response.players[0]
@@ -31,10 +32,7 @@ class Main extends Component {
     }
     render() {
         const userID = this.props.location.search.slice(9);
-        // console.log(userID);
-        
-        // console.log("this is data", this.state.data.steamid)
-        
+                
         return (
             <div className="full">
             <div className="main">
@@ -42,7 +40,7 @@ class Main extends Component {
                 <About/>
                 </div>
                 <div className="main__content">
-                    <Welcome userID={userID} personaname={this.state.data.personaname} avatar={this.state.data.avatar}/>
+                    <Welcome userID={userID}/>
                 </div>
             </div>
             <Footer/>

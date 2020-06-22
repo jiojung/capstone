@@ -24,17 +24,16 @@ class Welcome extends Component {
     
     
     componentDidMount(){
-        axios.get(`http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=A9AF4EC788FFD1B9A079A36B0A93BDFC&steamids=` +this.props.userID)
+        axios.get(`${API_URL}/getplayersummary?steamid=${this.props.userID}`)
         .then((response) =>
             this.setState({
                 userdata: response.data.response.players[0]
-                
             }),
           )
         .catch(error  => {
             console.log(error)
         })
-        axios.get(`http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=A9AF4EC788FFD1B9A079A36B0A93BDFC&steamid=`+this.props.userID+`&format=json`)
+        axios.get(`${API_URL}/getplayergames?steamid=${this.props.userID}`)
         .then((response) =>
         this.setState({
             usergames: response.data.response.games
@@ -43,7 +42,7 @@ class Welcome extends Component {
         .catch(error  => {
             console.log(error)
         })
-        axios.get(` http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=A9AF4EC788FFD1B9A079A36B0A93BDFC&steamid=`+this.props.userID+`&format=json`)
+        axios.get(`${API_URL}/getplayerrecent?steamid=${this.props.userID}`)
         .then((response) =>
         this.setState({
             userrecent: response.data.response.games[0]

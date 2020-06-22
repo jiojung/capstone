@@ -103,7 +103,7 @@ app.get('/auth/logout', function(request, response) {
 
 app.get('/getplayersummary', function(req, res) {
   console.log("this is 3id", req.query.steamid);
-  var url = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=A9AF4EC788FFD1B9A079A36B0A93BDFC&steamids=76561198045237469';
+  var url = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=A9AF4EC788FFD1B9A079A36B0A93BDFC&steamids='+req.query.steamid;
     request(url, function(err, response, body) {
       if(!err && response.statusCode < 400) {
         console.log(body);
@@ -111,6 +111,29 @@ app.get('/getplayersummary', function(req, res) {
       }
     });	
 });
+
+app.get('/getplayergames', function(req, res) {
+  var url = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=A9AF4EC788FFD1B9A079A36B0A93BDFC&steamid=`+req.query.steamid+`&format=json`;
+    request(url, function(err, response, body) {
+      if(!err && response.statusCode < 400) {
+        console.log(body);
+        res.send(body);
+      }
+    });	
+});
+
+app.get('/getplayerrecent', function(req, res) {
+  console.log("this is 3id", req.query.steamid);
+  var url = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=A9AF4EC788FFD1B9A079A36B0A93BDFC&steamid=`+req.query.steamid+`&format=json`;
+    request(url, function(err, response, body) {
+      if(!err && response.statusCode < 400) {
+        console.log(body);
+        res.send(body);
+      }
+    });	
+});
+
+
 
 app.post('/userinfo', function(request, response) {
       fs.readFile('userdata.json', 'utf8', function readFileCallback(err, data){
