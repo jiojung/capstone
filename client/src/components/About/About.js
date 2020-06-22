@@ -42,7 +42,7 @@ class About extends Component {
             <div className="about" id="about" >
                 <div className="about__purpose" data-aos="fade-right">
                     <h2>The Purpose</h2>
-                    <p>During this pandemic people are getting less social interaction than ever before. With our website we hope you can find and have a long lasting friendship</p>
+                    <p>During this pandemic people are getting less social interaction than ever before. Steam being a platform used by millions of people, it is filled with people looking for new friendships. With our website we hope you can find and have a long lasting friendship.</p>
                 </div>
                 <div className="about__users" data-aos="fade-right">
                     <h2>Our users</h2>
@@ -54,12 +54,12 @@ class About extends Component {
                     </div>
                 </div>
                 <div className="about__team" id="team" data-aos="fade-right">
-                    <h2>Our Team</h2>
-                    <p>Our team consists of Jio Jung. He hopes you can enjoy this app for what it is supposed to be.</p>
+                    <h2>About maker</h2>
+                    <p>Hello, my name is Jio Jung. I am an asipiring web developer and video game lover. I hope you can enjoy this app for what it is supposed to be.</p>
                 </div>
                 <div className="about__how" id="how" data-aos="fade-right">
                     <h2>How it works</h2>
-                    <p>We take your data and put it run it through our program to match you with a random person that already exists in our database. Give it a try!</p>
+                    <p>We take your data and then we run it through our program to match you with a random person that already exists in our database. Give it a try!</p>
                 </div>
             </div>
             </Element>
