@@ -19,8 +19,8 @@ class Footer extends Component {
                         <img src={discord} alt="discord logo" className="footer__discord--logo"/>
                     </div>
                     <div className="footer__logo">
-                        <h5>Github</h5>
-                        <img src={github} alt="github logo" className="footer__github--logo"/>
+                        <h5><a href={`https://github.com/jiojung`} target="_blank" rel="noopener noreferrer">Github</a></h5>
+                        <a href={`https://github.com/jiojung`} target="_blank" rel="noopener noreferrer"><img src={github} alt="github logo" className="footer__github--logo"/></a>
                     </div>
                 </div>
             </div>

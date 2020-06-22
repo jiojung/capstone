@@ -24,7 +24,7 @@
     &__video{
         position: relative;
         overflow: hidden;
-        max-width: 100%;
+        min-width: 100%;
         object-fit: fill;
         min-height: 100vh;
         background-color: black;

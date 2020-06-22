@@ -124,17 +124,19 @@ class Welcome extends Component {
                     </>
                     :
                     <>
-                    <div className="welcome__main">
-                        <div className="welcome__friend">
+                    <div className="welcome__main" data-aos="flip-up" >
+                        <div className="welcome__friend" >
                         <h3>Here is your new friend!</h3>
                         <p><img src={friend.avatarfull} alt="friend's avatar" className="playeravatar"/></p>
                         <p><a href ={`${API_URL}/auth/logout`}>Logout</a></p>
                         </div>
-                        <div className="welcome__container">
-                            <p>Their name is {friend.personaname}</p>
-                            <p>They live in {friend.locstatecode}, {friend.loccountrycode}</p>
-                            <p>Recently they've been enjoying <a href={`https://steamcommunity.com/app/${friend.userrecent.appid}`}>{friend.userrecent.name}</a></p>
-                            <p>Here is a link to their <a href={`https://steamcommunity.com/id/${friend.steamid}`}>profile</a></p>
+                        <div className="welcome__container" >
+                            <div className="welcome__data" data-aos="flip-up">
+                                <p>Their name is {friend.personaname}</p>
+                                <p>They live in {friend.locstatecode}, {friend.loccountrycode}</p>
+                                <p>Recently they've been enjoying <a href={`https://steamcommunity.com/app/${friend.userrecent.appid}`} target="_blank" rel="noopener noreferrer">{friend.userrecent.name}</a></p>
+                                <p>Here is a link to their <a href={`https://steamcommunity.com/profiles/${friend.steamid}`} target="_blank" rel="noopener noreferrer">profile</a></p>
+                            </div>
                             <div className="welcome__button">
                                 <form id="matchUser" onSubmit={this.onSubmit}>
                                     <button type='submit'>Match me again</button>
