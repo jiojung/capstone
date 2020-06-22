@@ -5,6 +5,7 @@
     background-color: black;
     min-width: 100%;
     width: 100%;
+    overflow: hidden;
     &__nav{
         display: flex;
         justify-content: space-between;
@@ -12,11 +13,13 @@
         align-items:center;
         position: relative;
         transition: margin-left .5s;
+        overflow: hidden;
 
     }
     &__container {
         background: rgba(0, 0, 0, 0.7);
         height: 100vh;
+        overflow: hidden;
     }
     &__video{
         position: relative;

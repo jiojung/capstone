@@ -2,10 +2,7 @@ import "./header.scss"
 import React, { Component } from 'react'
 import logo from '../../assets/logo/logo_transparent.png';
 import video from '../../assets/video/video.mp4';
-import Footer from '../Footer/Footer';
-import {Link} from 'react-router-dom';
 import Scroll from 'react-scroll';
-import { StickyContainer, Sticky } from "react-sticky";
 const ScrollLink = Scroll.Link;
 
 class Header extends Component {
@@ -29,8 +26,6 @@ class Header extends Component {
         }
     
     render() {
-        console.log("this is width", this.state.width)
-
         return (
             <div className="header" id="home">
                 <div className="header__container">

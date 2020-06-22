@@ -4,7 +4,6 @@ import './welcome.scss';
 import AOS from 'aos';
 import axios from 'axios';
 const API_URL = 'http://localhost:4000';
-const list1 = []
 AOS.init({
     duration: 1200
    });
@@ -99,23 +98,13 @@ class Welcome extends Component {
     
 
     render() {
-        console.log("this is games", this.state.usergames);
-        console.log("this is allusers", this.state.allusers);
-        console.log("this is length", this.state.allusers.length);
-        console.log("this is new", this.state.newfornow);
-        console.log("recent", this.state.userrecent)
-        console.log("recent game", this.state.userrecent.name)
-        // console.log("this is state", this.state);
-        
         const friend = this.state.newfornow[Math.floor(Math.random()*this.state.newfornow.length)]
-        console.log("random", friend)
-        // const friendgame = friend.usergame
         return (
-            <div className="welcome" data-aos="fade-left">
+            <div className="welcome" data-aos="fade-right">
                 {this.props.userID.length === 0 ?
                     <>
                     <h2>Get Started</h2> 
-                    <p><a href ={`${API_URL}/auth/openid`}><img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/steamworks_docs/english/sits_large_noborder.png"/></a></p>
+                    <p><a href ={`${API_URL}/auth/openid`}><img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/steamworks_docs/english/sits_large_noborder.png" alt="user profile pic"/></a></p>
                     </>
                     :
                     <>

@@ -4,8 +4,6 @@ import axios from 'axios';
 import Welcome from './Welcome/Welcome';
 import Footer from '../Footer/Footer';
 import About from '../About/About';
-import Header from '../Header/Header';
-import { StickyContainer } from 'react-sticky';
 
 const API_URL = 'http://localhost:4000';
 

@@ -17,7 +17,7 @@ class About extends Component {
                     <h2>The Purpose</h2>
                     <p>During this pandemic people are getting less social interaction than ever before. With our website we hope you can find and have a long lasting friendship</p>
                 </div>
-                <div className="about__team" id="team" data-aos="fade-left">
+                <div className="about__team" id="team" data-aos="fade-right">
                     <h2>Our Team</h2>
                     <p>Our trio consists of Jio Jung, his computer and his sanity. They hope you can enjoy this app for what it is supposed to be.</p>
                 </div>
