@@ -4,6 +4,7 @@ import axios from 'axios';
 import Welcome from './Welcome/Welcome';
 import Footer from '../Footer/Footer';
 import About from '../About/About';
+import Featured from '../Featured/Featured'
 
 const API_URL = 'http://localhost:4000';
 
@@ -37,10 +38,13 @@ class Main extends Component {
             <div className="full">
             <div className="main">
                 <div className="main__headline">
-                <About/>
+                    <About/>
                 </div>
                 <div className="main__content">
                     <Welcome userID={userID}/>
+                </div>
+                <div className="main__news">
+                    <Featured/>
                 </div>
             </div>
             <Footer/>

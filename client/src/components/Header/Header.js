@@ -44,10 +44,9 @@ class Header extends Component {
                             style={{width:this.state.width}}>
                                 <div onClick={this.onClick}></div>
                                 <ScrollLink to="home" spy={true} smooth={true} duration={500}>Home</ScrollLink>                     <ScrollLink to="about" spy={true} smooth={true} duration={500}>About</ScrollLink>
-                                <ScrollLink to="about" spy={true} smooth={true} duration={500}>Team</ScrollLink>
                                 <ScrollLink to="match" spy={true} smooth={true} duration={500}>Match</ScrollLink>
+                                <ScrollLink to="news" spy={true} smooth={true} duration={500}>Featured game</ScrollLink>
                                 <ScrollLink to="footer" spy={true} smooth={true} duration={500}>Contact</ScrollLink>
-
                             </div>
                         </button>
                         <img src={logo} alt="steamatch logo" className="nav__logo"/>
