@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/capstone/static/css/main.c99885dc.chunk.css",
+    "main.js": "/capstone/static/js/main.a80a03f4.chunk.js",
+    "main.js.map": "/capstone/static/js/main.a80a03f4.chunk.js.map",
+    "runtime-main.js": "/capstone/static/js/runtime-main.c8ee88e5.js",
+    "runtime-main.js.map": "/capstone/static/js/runtime-main.c8ee88e5.js.map",
+    "static/css/2.eb43dee1.chunk.css": "/capstone/static/css/2.eb43dee1.chunk.css",
+    "static/js/2.dd48b847.chunk.js": "/capstone/static/js/2.dd48b847.chunk.js",
+    "static/js/2.dd48b847.chunk.js.map": "/capstone/static/js/2.dd48b847.chunk.js.map",
+    "index.html": "/capstone/index.html",
+    "precache-manifest.8dbb3183b9e6d0a8cf956bc5803d9dfe.js": "/capstone/precache-manifest.8dbb3183b9e6d0a8cf956bc5803d9dfe.js",
+    "service-worker.js": "/capstone/service-worker.js",
+    "static/css/2.eb43dee1.chunk.css.map": "/capstone/static/css/2.eb43dee1.chunk.css.map",
+    "static/css/main.c99885dc.chunk.css.map": "/capstone/static/css/main.c99885dc.chunk.css.map",
+    "static/js/2.dd48b847.chunk.js.LICENSE.txt": "/capstone/static/js/2.dd48b847.chunk.js.LICENSE.txt",
+    "static/media/discord-logo.svg": "/capstone/static/media/discord-logo.f8389ca1.svg",
+    "static/media/twitter.svg": "/capstone/static/media/twitter.05b44842.svg",
+    "static/media/video.mp4": "/capstone/static/media/video.2f497961.mp4"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c8ee88e5.js",
+    "static/css/2.eb43dee1.chunk.css",
+    "static/js/2.dd48b847.chunk.js",
+    "static/css/main.c99885dc.chunk.css",
+    "static/js/main.a80a03f4.chunk.js"
+  ]
+}
