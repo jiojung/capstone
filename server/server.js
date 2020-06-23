@@ -5,6 +5,8 @@ const passport = require('passport');
 const request = require('request');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+require('dotenv').config()
+const API_KEY =`${process.env.REACT_APP_API_KEY}`
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -81,13 +83,6 @@ app.get('/auth/openid/return', passport.authenticate('openid'),
     function(request, response) {
         if (request.user) {
             response.redirect('http://localhost:3000/?steamid=' + request.user.steamId);
-            // var url = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=A9AF4EC788FFD1B9A079A36B0A93BDFC&steamids=' + request.user.steamId;
-            // request(url, function(err, response, body) {
-            //   if(!err && response.statusCode < 400) {
-            //     console.log(body);
-            //     res.send(body);
-            //   }
-            // });
             console.log("this is id", request.user.steamId)
             console.log("this is 2id", request.query.steamid);
 
@@ -103,7 +98,7 @@ app.get('/auth/logout', function(request, response) {
 
 app.get('/getplayersummary', function(req, res) {
   console.log("this is 3id", req.query.steamid);
-  var url = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=A9AF4EC788FFD1B9A079A36B0A93BDFC&steamids='+req.query.steamid;
+  var url = 'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key='+API_KEY+'&steamids='+req.query.steamid;
     request(url, function(err, response, body) {
       if(!err && response.statusCode < 400) {
         console.log(body);
@@ -113,7 +108,7 @@ app.get('/getplayersummary', function(req, res) {
 });
 
 app.get('/getplayergames', function(req, res) {
-  var url = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=A9AF4EC788FFD1B9A079A36B0A93BDFC&steamid=`+req.query.steamid+`&format=json`;
+  var url = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key='+API_KEY+'&steamid='+req.query.steamid+'&format=json';
     request(url, function(err, response, body) {
       if(!err && response.statusCode < 400) {
         console.log(body);
@@ -123,7 +118,7 @@ app.get('/getplayergames', function(req, res) {
 });
 
 app.get('/getplayerrecent', function(req, res) {
-  var url = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=A9AF4EC788FFD1B9A079A36B0A93BDFC&steamid=`+req.query.steamid+`&format=json`;
+  var url = 'http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key='+API_KEY+'&steamid='+req.query.steamid+'&format=json';
     request(url, function(err, response, body) {
       if(!err && response.statusCode < 400) {
         console.log(body);
