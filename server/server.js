@@ -6,7 +6,7 @@ const request = require('request');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 require('dotenv').config()
-const API_KEY =`A9AF4EC788FFD1B9A079A36B0A93BDFC`
+const API_KEY =`${process.env.REACT_APP_API_KEY}`
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
