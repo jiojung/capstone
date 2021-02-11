@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7db2b67d1dd5c032086e3ad613785c23",
+    "revision": "6b1ba976a82eeff1a8a05c9def1c07ef",
     "url": "/capstone/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/capstone/static/css/2.eb43dee1.chunk.css"
   },
   {
-    "revision": "03a3713dedab35d9ef3e",
+    "revision": "975e4defb8d93fe8e7c9",
     "url": "/capstone/static/css/main.c99885dc.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/capstone/static/js/2.dd48b847.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "03a3713dedab35d9ef3e",
-    "url": "/capstone/static/js/main.a80a03f4.chunk.js"
+    "revision": "975e4defb8d93fe8e7c9",
+    "url": "/capstone/static/js/main.e364cf54.chunk.js"
   },
   {
     "revision": "c965a8cca46d51ac58ec",

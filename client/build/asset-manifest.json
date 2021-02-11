@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/capstone/static/css/main.c99885dc.chunk.css",
-    "main.js": "/capstone/static/js/main.a80a03f4.chunk.js",
-    "main.js.map": "/capstone/static/js/main.a80a03f4.chunk.js.map",
+    "main.js": "/capstone/static/js/main.e364cf54.chunk.js",
+    "main.js.map": "/capstone/static/js/main.e364cf54.chunk.js.map",
     "runtime-main.js": "/capstone/static/js/runtime-main.c8ee88e5.js",
     "runtime-main.js.map": "/capstone/static/js/runtime-main.c8ee88e5.js.map",
     "static/css/2.eb43dee1.chunk.css": "/capstone/static/css/2.eb43dee1.chunk.css",
     "static/js/2.dd48b847.chunk.js": "/capstone/static/js/2.dd48b847.chunk.js",
     "static/js/2.dd48b847.chunk.js.map": "/capstone/static/js/2.dd48b847.chunk.js.map",
     "index.html": "/capstone/index.html",
-    "precache-manifest.8dbb3183b9e6d0a8cf956bc5803d9dfe.js": "/capstone/precache-manifest.8dbb3183b9e6d0a8cf956bc5803d9dfe.js",
+    "precache-manifest.87d19bb53bb9f28bd9d428fcae40e0d2.js": "/capstone/precache-manifest.87d19bb53bb9f28bd9d428fcae40e0d2.js",
     "service-worker.js": "/capstone/service-worker.js",
     "static/css/2.eb43dee1.chunk.css.map": "/capstone/static/css/2.eb43dee1.chunk.css.map",
     "static/css/main.c99885dc.chunk.css.map": "/capstone/static/css/main.c99885dc.chunk.css.map",
@@ -23,6 +23,6 @@
     "static/css/2.eb43dee1.chunk.css",
     "static/js/2.dd48b847.chunk.js",
     "static/css/main.c99885dc.chunk.css",
-    "static/js/main.a80a03f4.chunk.js"
+    "static/js/main.e364cf54.chunk.js"
   ]
 }
