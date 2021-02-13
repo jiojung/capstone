@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
       <Header/>
       <Switch>
-        <Route path="/" component={Main}/>
+        <Route exact path="/" component={Main}/>
       </Switch>
       </BrowserRouter>
     </div>

@@ -6,7 +6,7 @@ const request = require('request');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 require('dotenv').config()
-const API_KEY =`${process.env.REACT_APP_API_KEY}`
+const API_KEY =`A9AF4EC788FFD1B9A079A36B0A93BDFC`
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -82,12 +82,12 @@ app.use(passport.session());
 app.get('/auth/openid/return', passport.authenticate('openid'),
     function(request, response) {
         if (request.user) {
-            response.redirect('http://localhost:3000/capstone/?steamid=' + request.user.steamId);
+            response.redirect('http://localhost:3000/?steamid=' + request.user.steamId);
             console.log("this is id", request.user.steamId)
             console.log("this is 2id", request.query.steamid);
 
         } else {
-            response.redirect('http://localhost:3000/capstone/?failed');
+            response.redirect('http://localhost:3000/?failed');
         }
 }); 
 
